@@ -212,9 +212,33 @@ rollTheDices(6)
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
 
+// Grazie amico Google
+
+function howManyDays(date) {
+    // Converti la data in millisecondi
+    const dateInMillis = Date.parse(date);
+  
+    const currentDateInMillis = Date.now();
+    const differenceInMillis = currentDateInMillis - dateInMillis;
+  
+
+    const daysPassed = Math.floor(differenceInMillis / (1000 * 60 * 60 * 24));
+  
+    return daysPassed;
+  }
+  
+  const myDate = new Date(1997, 6, 10);
+  const daysPassed = howManyDays(myDate);
+  console.log("Giorni trascorsi:", daysPassed);
+
+
+
+
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
+
+
 
 // Arrays & Oggetti
 
