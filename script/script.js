@@ -598,5 +598,5 @@ const movies = [
 
   console.log(searchByTitle("Dogtown"))
 
-  console.log(removeIndex(5))
+
   
