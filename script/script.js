@@ -138,7 +138,7 @@ const onlyLetters = function (stringa){
     return newString
 }
 
-console.log(onlyLetters("Ieri ho mangiato 5 hamburger"))
+console.log(onlyLetters("Kobe Bryant ha segnato 81 punti nel 2006 contro i Raptors"))
 
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
@@ -274,41 +274,97 @@ const isTodayMyBirthday = function() {
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
+const KobeBryant = {
+    name: "Kobe",
+    surname: "Bryant",
+    mostPoints: "81",
+    titles: "5"
+}
 
+const deleteProp = function(oggetto,stringa){
+    delete oggetto[stringa]
+    return oggetto
+}
+
+console.log(deleteProp(KobeBryant, "titles"))
 
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
 
+const newestMovie = function(array){
+    let result = { Year: 1890 }
+    array.forEach((movie) => {
+      let currentYear = parseInt(movie.Year)
+      if (currentYear > result.Year) {
+        result = movie
+      }
+    })
+  
+    return result
+  }
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
+
+const countMovies = function(array){
+    return array.length
+  }
 
 /* ESERCIZIO 14
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
 
+const onlyTheYears = function(array){
+    return array.map((elem) => elem.Year)
+  }
+
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
+
+const onlyInLastMillennium = function(array){
+    return array.filter((movie) => {
+      return parseInt(movie.Year) < 2000
+    })
+  }
 
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
 
+const sumAllTheYears = function(array) {
+    return array.reduce((accumulatore, valoreCorrente) => accumulatore += Number(valoreCorrente.Year), 0)
+  }
+
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
 
+const searchByTitle = function(string){
+    let arr = []
+    movies.forEach((film)=>{
+      if(film.Title.includes(string)){
+        arr.push(film)
+      }
+    }) 
+    return arr
+  }
+  
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 
+
+
+
+
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
@@ -316,29 +372,69 @@ const isTodayMyBirthday = function() {
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 
+const selectContainer = function() {
+    let container = document.getElementById("container")
+}
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+
+const selecttd = function (){
+    let td = document.getElementsByTagName("td")
+}
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 
+const printTd = function (){
+    let allTd = document.querySelectorAll("td")
+    allTd.forEach((td)=>{
+        console.log(td.innerText)
+    })
+}
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+
+const redBackground = function(){
+    let allLinks = querySelectorAll("a")
+    allLinks.forEach((a)=>{
+        a.style.backgroundColor = "red"
+    })
+}
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
+const newListItem = function(){
+    let parentUL = document.getElementById("myList")
+    let newLI = document.createElement("li")
+    parentUL.appendChild(newLI)
+}
+
+
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+const emptyUL = function(){
+    let designedUL = document.getElementById ("myList")
+    designedUL.removeChild("li")
+}
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+const addClass = function(){
+    let allTR = document.querySelectorAll("tr")
+    allTR.forEach((tr)=>{
+        tr.classList.add("test")
+    })
+}
 
 // [EXTRA] JS Avanzato
 
@@ -353,6 +449,8 @@ const isTodayMyBirthday = function() {
   ***
 
 */
+
+
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
@@ -487,4 +585,18 @@ const movies = [
         'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg',
     },
   ]
+
+  console.log(newestMovie(movies))
+
+  console.log(countMovies(movies))
+
+  console.log(onlyTheYears(movies))
+
+  console.log(onlyInLastMillennium(movies))
+
+  console.log(sumAllTheYears(movies))
+
+  console.log(searchByTitle("Dogtown"))
+
+  console.log(removeIndex(5))
   
