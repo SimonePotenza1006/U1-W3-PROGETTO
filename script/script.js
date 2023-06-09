@@ -212,10 +212,10 @@ rollTheDices(6)
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
 
-// Grazie amico Google
+// Grazie amico Google:)
 
 function howManyDays(date) {
-    // Converti la data in millisecondi
+
     const dateInMillis = Date.parse(date);
   
     const currentDateInMillis = Date.now();
@@ -238,7 +238,33 @@ function howManyDays(date) {
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
 
+// Grazie di nuovo all'amico Google
 
+const isTodayMyBirthday = function() {
+    // Ottiengo la data corrente
+    const currentDate = new Date();
+  
+    // Ottieni il giorno e il mese dalla data corrente
+    const currentDay = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1; 
+  
+    // Imposto qui la data del mio compleanno in formato MESI-GIORNI
+    const myBirthday = "6-10"; 
+  
+    // Divido il giorno e il mese dalla data del mio compleanno
+    const birthdayParts = myBirthday.split("-");
+    const birthdayMonth = parseInt(birthdayParts[0]);
+    const birthdayDay = parseInt(birthdayParts[1]);
+  
+    // Confront il giorno e il mese corrente con il mio compleanno
+    if (currentMonth === birthdayMonth && currentDay === birthdayDay) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  console.log(isTodayMyBirthday());
 
 // Arrays & Oggetti
 
@@ -248,6 +274,8 @@ function howManyDays(date) {
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
+
+
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
