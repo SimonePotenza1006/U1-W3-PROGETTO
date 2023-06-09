@@ -190,8 +190,21 @@ console.log(whatDayIsIt())
   }
 */
 
+const rollTheDices = function(numeroLanci) {
+    const diceObject = {
+        sum: 0,
+        values:[]
+    } 
+    for(let i=0; i< numeroLanci; i++){
+        let lancio = dice()
+        diceObject.sum += lancio
+        diceObject.values.push(lancio)
+    }
+    return console.log(diceObject)
+}
 
 
+rollTheDices(6)
 
 
 
